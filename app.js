@@ -41,8 +41,23 @@ function start () {
     } 
   })
 }
+// createManager()
+  //ask all the manager questions, when done, go back to start()
+function createEmployee(employeeType){
+  inquirer.prompt([
+    {
+    type: "input",
+    message: "Enter name:",
+    name: "name"
+  }
+  ]).then( genericResponses => {
+    createManager(genericResponses)
+  })
+}
+
+
 // STUDENT: This function generates all the questions for creating the manager. You need to add more to this.
-function createManager(){
+function createManager(genericData){
   console.log("Please build your team");
   inquirer.prompt([
     {
@@ -61,12 +76,16 @@ function createManager(){
     // STUDENT: Add other questions here!
 
 
-    ]).then(answers => {
+    ]).then(response  => {
       // STUDENT: Process the response by instatiating a new object in the Manager class
+      // process all the answers
+      const managerObj = new Manager (genericData.name, genericData.email, response.officeNumber )
+      teamMembers.push(managerObj)
+      start();
 
 
       // Now call the next question set
-      createTeam();
+      // createTeam(); (commented out from gary example)
     });
 }
 
@@ -107,7 +126,10 @@ function createEngineer() {
 // and pass INTO it the teamMembers area; from there, write the HTML returned back to a file 
 // in a directory called output.
 function renderHtmlPage(){
+  const html = render(teamMembers)
+  fs.writeFile("output/index.html", html, err => {
 
+  })
 }
 
 // This is our starter function.
