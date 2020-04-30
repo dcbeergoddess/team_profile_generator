@@ -17,7 +17,30 @@ const teamMembers = [];
 // This will be an array of the id values created for each object so there are no duplicates
 const idArray = [];
 
+//start()
+//Do you want a team member? if so, choose a type:
+  // Manager, Engineer, Intern, I'm Done
 
+function start () {
+  inquirer.prompt([
+    {
+      type: "list",
+      message: "Choose an employee type:",
+      name: "type",
+      choices: [
+        "Manger",
+        "Engineer",
+        "Intern",
+        "Finished"
+      ]
+    }
+  ]).then( response => {
+    // process all the answers
+    if( response.type === "manager" ){
+      createEmployee("manager")
+    } 
+  })
+}
 // STUDENT: This function generates all the questions for creating the manager. You need to add more to this.
 function createManager(){
   console.log("Please build your team");
