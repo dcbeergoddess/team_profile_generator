@@ -36,13 +36,18 @@ function start () {
     }
   ]).then( response => {
     // process all the answers
-    if( response.type === "manager" ){
-      createEmployee("manager")
-    } 
+    if( response.type === "Manager" ){
+      createManager();
+    } else if( response.type === "Engineer" ){
+      createEngineer();
+    } else if( response.type === "Intern" ){
+      createIntern();
+    } else {
+      console.log("All Finished!")
+    }
   })
 }
-// createManager()
-  //ask all the manager questions, when done, go back to start()
+/*
 function createEmployee(employeeType){
   inquirer.prompt([
     {
@@ -50,20 +55,44 @@ function createEmployee(employeeType){
     message: "Enter name:",
     name: "name"
   }
-  ]).then( genericResponses => {
-    createManager(genericResponses)
+  ]).then( employeeData => {
+    createManager(employeeData);
+    createEngineer(employeeData);
+    createIntern(employeeData);
   })
 }
 
+//not going to use the above example. going to declare const = Employee questions and then pass into each employee function
 
+const employeeData = [
+  {
+    type: "input",
+    name: "name",
+    message: "Enter Employee Name:",
+    
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "Enter Employee ID"
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Enter Employee Email"
+  }
+]
+*/
+// createManager()
+  //ask all the manager questions, when done, go back to start()
 // STUDENT: This function generates all the questions for creating the manager. You need to add more to this.
-function createManager(genericData){
-  console.log("Please build your team");
+function createManager(){
+  // console.log("Please build your team");
   inquirer.prompt([
     {
       type: "input",
       name: "managerName",
-      message: "What is your manager's name?",
+      message: "What is your Manager's name?",
       // Note how the validate function works
       validate: answer => {
         if (answer !== "") {
@@ -72,15 +101,105 @@ function createManager(genericData){
         return "Please enter at least one character.";
       }
     },
-
+    {
+      type: "input",
+      name: "managerId",
+      message: "Enter Manager ID"
+    },
+    {
+      type: "input",
+      name: "managerEmail",
+      message: "Enter Manager Email"
+    }
+    
     // STUDENT: Add other questions here!
-
 
     ]).then(response  => {
       // STUDENT: Process the response by instatiating a new object in the Manager class
       // process all the answers
-      const managerObj = new Manager (genericData.name, genericData.email, response.officeNumber )
+      const managerObj = new Manager (response.managerName, response.managerId, response.managerEmail)
       teamMembers.push(managerObj)
+      start();
+
+
+      // Now call the next question set
+      // createTeam(); (commented out from gary example)
+    });
+}
+
+function createEngineer(){
+  // console.log("Please build your team");
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "engineerName",
+      message: "What is your Engineer's name?",
+      // Note how the validate function works
+      validate: answer => {
+        if (answer !== "") {
+          return true;
+        }
+        return "Please enter at least one character.";
+      }
+    },
+    {
+      type: "input",
+      name: "engineerId",
+      message: "Enter Engineer ID"
+    },
+    {
+      type: "input",
+      name: "EngineerEmail",
+      message: "Enter Engineer Email"
+    }
+    
+    // STUDENT: Add other questions here!
+
+    ]).then(response  => {
+      // STUDENT: Process the response by instatiating a new object in the Manager class
+      // process all the answers
+      const engineerObj = new Manager (response.engineerName, response.engineerId, response.engineerEmail)
+      teamMembers.push(engineerObj)
+      start();
+
+
+      // Now call the next question set
+      // createTeam(); (commented out from gary example)
+    });
+}
+function createIntern(){
+  // console.log("Please build your team");
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "internName",
+      message: "What is your Intern's name?",
+      // Note how the validate function works
+      validate: answer => {
+        if (answer !== "") {
+          return true;
+        }
+        return "Please enter at least one character.";
+      }
+    },
+    {
+      type: "input",
+      name: "internId",
+      message: "Enter Intern ID"
+    },
+    {
+      type: "input",
+      name: "internEmail",
+      message: "Enter Intern Email"
+    }
+    
+    // STUDENT: Add other questions here!
+
+    ]).then(response  => {
+      // STUDENT: Process the response by instatiating a new object in the Manager class
+      // process all the answers
+      const internObj = new Manager (response.internName, response.internId, response.internEmail )
+      teamMembers.push(internObj)
       start();
 
 
