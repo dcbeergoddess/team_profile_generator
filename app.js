@@ -5,6 +5,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 const validator = require("email-validator")
+const chalk = require("chalk");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -29,24 +30,24 @@ function start () {
       message: "Choose an employee type:",
       name: "type",
       choices: [
-        "Manager",
-        "Engineer",
-        "Intern",
-        "Finished"
+        chalk.magenta("Manager"),
+        chalk.yellow("Engineer"),
+        chalk.blueBright("Intern"),
+        chalk.greenBright("Finished")
       ]
     }
   ]).then( response => {
     // process all the answers
-    if (response.type === "Manager") {
+    if (response.type === chalk.magenta("Manager")) {
       createManager("Manager");
-    } else if (response.type === "Engineer") {
+    } else if (response.type === chalk.yellow("Engineer")) {
       createEngineer("Engineer");
-    } else if (response.type === "Intern") {
+    } else if (response.type === chalk.blueBright("Intern")) {
       createIntern("Intern");
     } else {
-      console.info("All Finished!")
-      console.log(teamMembers)
-      console.log(idArray)
+      console.info(chalk.green("All Finished!"))
+      // console.log(teamMembers)
+      // console.log(idArray)
       finish();
     }
   })
@@ -102,7 +103,7 @@ function createManager(){
         if (answer !== "") {
           return true;
         }
-        return "Please enter at least one character.";
+        return chalk.red("Please enter at least one character.");
       }
     },
     {
@@ -113,7 +114,7 @@ function createManager(){
         if (answer !== "") {
           return true;
         }
-        return "Please enter at least one character.";
+        return chalk.red("Please enter at least one character.");
       }
     },
     {
@@ -123,7 +124,7 @@ function createManager(){
       validate: answer => {
         if (validator.validate(answer) === true ) {
           return true;
-        } return "Please enter valid e-mail" 
+        } return chalk.red("Please enter valid e-mail") 
       }
     },
     {
@@ -134,7 +135,7 @@ function createManager(){
         if (answer !== "") {
           return true;
         }
-        return "Please enter at least one character.";
+        return chalk.red("Please enter at least one character.");
       }
     }
     
@@ -170,7 +171,7 @@ function createEngineer(){
         if (answer !== "") {
           return true;
         }
-        return "Please enter at least one character.";
+        return chalk.red("Please enter at least one character.");
       }
     },
     {
@@ -181,7 +182,7 @@ function createEngineer(){
         if (answer !== "") {
           return true;
         }
-        return "Please enter at least one character.";
+        return chalk.red("Please enter at least one character.");
       }
     },
     {
@@ -191,7 +192,7 @@ function createEngineer(){
       validate: answer => {
         if (validator.validate(answer) === true ) {
           return true;
-        } return "Please enter valid e-mail" 
+        } return chalk.red("Please enter valid e-mail") 
       }
     },
     {
@@ -202,7 +203,7 @@ function createEngineer(){
         if (answer !== "") {
           return true;
         }
-        return "Please enter at least one character.";
+        return chalk.red("Please enter at least one character.");
       }
     }
     
@@ -232,7 +233,7 @@ function createIntern(){
         if (answer !== "") {
           return true;
         }
-        return "Please enter at least one character.";
+        return chalk.red("Please enter at least one character.");
       }
     },
     {
@@ -243,7 +244,7 @@ function createIntern(){
         if (answer !== "") {
           return true;
         }
-        return "Please enter at least one character.";
+        return chalk.red("Please enter at least one character.");
       }
     },
     {
@@ -253,7 +254,7 @@ function createIntern(){
       validate: answer => {
         if (validator.validate(answer) === true ) {
           return true;
-        } return "Please enter valid e-mail" 
+        } return chalk.red("Please enter valid e-mail") 
       }
     },
     {
@@ -264,7 +265,7 @@ function createIntern(){
         if (answer !== "") {
           return true;
         }
-        return "Please enter at least one character.";
+        return chalk.red("Please enter at least one character.");
       } 
     }
     
@@ -288,7 +289,7 @@ function createIntern(){
       if (error){
         return console.log(Error)
       } else {
-        return console.log("Success!")
+        return console.log(chalk.black.bgMagentaBright("You have created your team page!!"))
       }
     })
   }
