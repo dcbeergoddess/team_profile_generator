@@ -108,7 +108,13 @@ function createManager(){
     {
       type: "input",
       name: "managerId",
-      message: "Enter Your ID"
+      message: "Enter Your ID",
+      validate: answer => {
+        if (answer !== "") {
+          return true;
+        }
+        return "Please enter at least one character.";
+      }
     },
     {
       type: "input",
@@ -123,7 +129,13 @@ function createManager(){
     {
       type: "input",
       name: "officeNumber",
-      message: "Enter Your Office Number"
+      message: "Enter Your Office Number",
+      validate: answer => {
+        if (answer !== "") {
+          return true;
+        }
+        return "Please enter at least one character.";
+      }
     }
     
    
@@ -164,7 +176,13 @@ function createEngineer(){
     {
       type: "input",
       name: "engineerId",
-      message: "Enter Engineer ID"
+      message: "Enter Engineer ID",
+      validate: answer => {
+        if (answer !== "") {
+          return true;
+        }
+        return "Please enter at least one character.";
+      }
     },
     {
       type: "input",
@@ -179,7 +197,13 @@ function createEngineer(){
     {
       type: "input",
       name: "github",
-      message: "Enter Engineer Git Hub Username"
+      message: "Enter Engineer Git Hub Username",
+      validate: answer => {
+        if (answer !== "") {
+          return true;
+        }
+        return "Please enter at least one character.";
+      }
     }
     
   
@@ -214,7 +238,13 @@ function createIntern(){
     {
       type: "input",
       name: "internId",
-      message: "Enter Intern ID"
+      message: "Enter Intern ID",
+      validate: answer => {
+        if (answer !== "") {
+          return true;
+        }
+        return "Please enter at least one character.";
+      }
     },
     {
       type: "input",
@@ -229,7 +259,13 @@ function createIntern(){
     {
       type: "input",
       name: "school",
-      message: "Enter Intern's School" 
+      message: "Enter Intern's School",
+      validate: answer => {
+        if (answer !== "") {
+          return true;
+        }
+        return "Please enter at least one character.";
+      } 
     }
     
     // STUDENT: Add other questions here!
