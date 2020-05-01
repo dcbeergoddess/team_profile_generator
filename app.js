@@ -28,7 +28,7 @@ function start () {
       message: "Choose an employee type:",
       name: "type",
       choices: [
-        "Manger",
+        "Manager",
         "Engineer",
         "Intern",
         "Finished"
@@ -36,14 +36,15 @@ function start () {
     }
   ]).then( response => {
     // process all the answers
-    if( response.type === "Manager" ){
-      createManager();
-    } else if( response.type === "Engineer" ){
-      createEngineer();
-    } else if( response.type === "Intern" ){
-      createIntern();
+    if (response.type === "Manager") {
+      createManager("Manager");
+    } else if (response.type === "Engineer") {
+      createEngineer("Engineer");
+    } else if (response.type === "Intern") {
+      createIntern("Intern");
     } else {
-      console.log("All Finished!")
+      console.info("All Finished!")
+      // finish();
     }
   })
 }
@@ -221,6 +222,6 @@ function createIntern(){
 
 start();
 
-function finish(){
-  const html = render()
-}
+// function finish(){
+//   const html = render()
+// }
