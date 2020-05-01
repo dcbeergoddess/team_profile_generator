@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const validator = require("email-validator")
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -112,7 +113,12 @@ function createManager(){
     {
       type: "input",
       name: "managerEmail",
-      message: "Enter Your Email"
+      message: "Enter Your Email",
+      validate: answer => {
+        if (validator.validate(answer) === true ) {
+          return true;
+        } return "Please enter valid e-mail" 
+      }
     },
     {
       type: "input",
@@ -127,6 +133,10 @@ function createManager(){
       // process all the answers
       const managerObj = new Manager (response.managerName, response.managerId, response.managerEmail, response.officeNumber)
       teamMembers.push(managerObj)
+      //tryign to get error message if more than one manager
+        //if (teamMembers ["Manager"]) {
+          //console.log ("You can only have one Manager")
+    
       idArray.push(response.managerId)
       start();
 
@@ -159,7 +169,12 @@ function createEngineer(){
     {
       type: "input",
       name: "engineerEmail",
-      message: "Enter Engineer Email"
+      message: "Enter Engineer Email",
+      validate: answer => {
+        if (validator.validate(answer) === true ) {
+          return true;
+        } return "Please enter valid e-mail" 
+      }
     },
     {
       type: "input",
@@ -204,7 +219,12 @@ function createIntern(){
     {
       type: "input",
       name: "internEmail",
-      message: "Enter Intern Email"
+      message: "Enter Intern Email",
+      validate: answer => {
+        if (validator.validate(answer) === true ) {
+          return true;
+        } return "Please enter valid e-mail" 
+      }
     },
     {
       type: "input",

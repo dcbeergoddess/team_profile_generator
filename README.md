@@ -4,7 +4,7 @@
 
 ## Description
 
-Using skill learned from creating classes in node/JavaScript and calling on inquirer the application will serve as a tool that a manager of a software engineering team can use to generate a webpage that displays their teams basic info. The info will allow the manger to have quick access to emails and GitHub profiles.
+JavaScript and node package managers, this application and will serve as a tool that a manager of a software engineering team can use to generate a webpage that displays their team's basic info. The info will allow the manger to have quick access to emails and GitHub profiles.
 
 ## Table Of Contents
 
