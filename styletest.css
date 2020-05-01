@@ -1,0 +1,189 @@
+/* -----Styles for all pages------ */
+
+body {
+  /* Typography */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* Visual */
+
+  background-color: #202020;
+
+  /* background-image: url("/Users/dcbeergoddess/Documents/gwubootcamp/homework/homework_02_portfolioupdate/homework_02/assets/images/zoomHeavyMetalFaces.png"); */
+}
+
+html {
+  /* positioning */
+  position: relative;
+
+  /* box-model */
+  min-height: 100%;
+}
+
+/* add space for fixed nav */
+
+main {
+  margin: 80px 0;
+}
+
+/* create styles for use for all white main boxes*/
+
+.block {
+  background-color: #FAFAD2;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.block-header {
+  /* typography */
+  color: #85144b;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+}
+
+/* NAV START */
+
+nav {
+  background-color: #FAFAD2;
+}
+
+#logo {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+  /* typography */
+  font-size: 24px;
+  font-weight: bold;
+  color: #85144b;
+  
+}
+
+/* override bootstrap hover color and border */
+.navbar-default .navbar-nav > li > a.hover {
+  color: black;
+}
+
+.navbar {
+  background: #FAFAD2;
+  border: none;
+}
+
+/* media query for nav background color change */
+@media only screen and (max-width: 767px) {
+  .navbar-header {
+    background-color: #FAFAD2;
+  }
+}
+
+/* END NAV */
+
+/* CONNECT w/ ME CSS */
+.connect-header {
+  /* Typography */
+  font-size: 25px;
+}
+
+.connect-photo {
+  /* box-model */
+  width: 55px;
+  height: 55px;
+}
+
+#images {
+  /* box-model */
+  padding-top: 15px;
+
+  /* typograpaphy */
+  text-align: center;
+
+}
+
+  /* END CONNECT W/ ME */
+
+  /* BEGIN FOOTER */
+
+  .footer {
+    /* Positioning */
+    position: absolute;
+    bottom: 0;
+
+    /* box model */
+    width: 100%;
+    height: 60px;
+    /* visual */
+    background-color: #FAFAD2;
+  }
+
+  .text-muted-footer {
+    /* box model */
+    margin-top: 15px;
+    /* typography */
+    color: #FAFAD2;
+  }
+
+  .two-toned-footer-color {
+    /* box model */
+    height: 6px;
+    padding-top: 3px;
+
+    /* visual */
+    background-color: #85144b; 
+  }
+/* END FOOTER */
+/* END STYLE FOR ALL PAGES */
+
+/* Page Specific */
+
+/* about me */
+.about-me-header {
+  /* positioning */
+  margin-bottom: 33px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #333333;
+}
+
+#bio-image{
+  /* positioning */
+  float: left;
+
+  /* boxmodel */
+  width: 200px;
+  margin: 0 20px 10px 0;
+}
+/* endaboutme */
+
+/* portfoliopage */
+
+.port-image {
+  margin: 20px auto;
+}
+/* end portfolio page */
+
+/* contact form */
+
+.form-control {
+  /* give input boxes right angles */
+  border-radius: 0;
+
+  /* keep for horizontally resizing text area */
+  min-width: 100%;
+  max-width: 100%;  
+}
+
+.submit-btn {
+  /* box model */
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: lighter;
+
+  /* typography */
+  color: #fff;
+
+  /* visual */
+  background-color: black;
+  border: 0;
+}
+
+.submit-btn:hover {
+  opacity: .7;
+}
+/* end contact form page */
