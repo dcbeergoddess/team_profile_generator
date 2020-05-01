@@ -163,7 +163,7 @@ function createEngineer(){
     },
     {
       type: "input",
-      name: "gitHub",
+      name: "github",
       message: "Enter Engineer Git Hub Username"
     }
     
@@ -171,7 +171,7 @@ function createEngineer(){
 
     ]).then(response  => {
      
-      const engineerObj = new Engineer (response.engineerName, response.engineerId, response.engineerEmail, response.gitHub)
+      const engineerObj = new Engineer (response.engineerName, response.engineerId, response.engineerEmail, response.github)
       teamMembers.push(engineerObj)
       idArray.push(response.engineerId)
       start();
