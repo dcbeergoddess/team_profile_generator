@@ -44,7 +44,9 @@ function start () {
       createIntern("Intern");
     } else {
       console.info("All Finished!")
-      // finish();
+      console.log(teamMembers)
+      console.log(idArray)
+      finish();
     }
   })
 }
@@ -125,6 +127,7 @@ function createManager(){
       // process all the answers
       const managerObj = new Manager (response.managerName, response.managerId, response.managerEmail, response.officeNumber)
       teamMembers.push(managerObj)
+      idArray.push(response.managerId)
       start();
 
 
@@ -170,6 +173,7 @@ function createEngineer(){
      
       const engineerObj = new Manager (response.engineerName, response.engineerId, response.engineerEmail, response.gitHub)
       teamMembers.push(engineerObj)
+      idArray.push(response.engineerId)
       start();
 
 
@@ -215,13 +219,28 @@ function createIntern(){
       // process all the answers
       const internObj = new Manager (response.internName, response.internId, response.internEmail, response.school )
       teamMembers.push(internObj)
+      idArray.push(response.internId)
       start();
 
     });
 }
+  function finish() {
 
+    const html = render(teamMembers);
+
+    fs.writeFile("index.html", html, error =>{
+      if (error){
+        return console.log(Error.stackTraceLimit = Infinity)
+      } else {
+        return console.log("Success!")
+      }
+    })
+
+  }
 start();
 
-// function finish(){
-//   const html = render()
-// }
+
+
+
+
+
