@@ -171,7 +171,7 @@ function createEngineer(){
 
     ]).then(response  => {
      
-      const engineerObj = new Manager (response.engineerName, response.engineerId, response.engineerEmail, response.gitHub)
+      const engineerObj = new Engineer (response.engineerName, response.engineerId, response.engineerEmail, response.gitHub)
       teamMembers.push(engineerObj)
       idArray.push(response.engineerId)
       start();
@@ -217,7 +217,7 @@ function createIntern(){
     ]).then(response  => {
       // STUDENT: Process the response by instatiating a new object in the Manager class
       // process all the answers
-      const internObj = new Manager (response.internName, response.internId, response.internEmail, response.school )
+      const internObj = new Intern (response.internName, response.internId, response.internEmail, response.school )
       teamMembers.push(internObj)
       idArray.push(response.internId)
       start();
@@ -228,14 +228,13 @@ function createIntern(){
 
     const html = render(teamMembers);
 
-    fs.writeFile("index.html", html, error =>{
+    fs.writeFile("index.html", html, error => {
       if (error){
-        return console.log(Error.stackTraceLimit = Infinity)
+        return console.log(Error)
       } else {
         return console.log("Success!")
       }
     })
-
   }
 start();
 
