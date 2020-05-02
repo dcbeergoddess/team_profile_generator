@@ -17,11 +17,9 @@ const render = require("./lib/htmlRenderer");
 const teamMembers = [];
 
 // This will be an array of the id values created for each object so there are no duplicates
+//pushed these to the array but never went anywhere with it
 const idArray = [];
 
-//start()
-//Do you want a team member? if so, choose a type:
-  // Manager, Engineer, Intern, I'm Done
 
 function start () {
   inquirer.prompt([
@@ -52,7 +50,9 @@ function start () {
     }
   })
 }
-/*
+/* TWO DIFFERNT WAYS TO POSSIBLY APPROAC REFACTORING
+
+//create a function and then call it
 function createEmployee(employeeType){
   inquirer.prompt([
     {
@@ -67,8 +67,7 @@ function createEmployee(employeeType){
   })
 }
 
-//not going to use the above example. going to declare const = Employee questions and then pass into each employee function
-
+//declar the questions as a variable. also a way to put inquirer prompt in the variable for all seapearate questiona nd then next the call back responses with .then statements 
 const employeeData = [
   {
     type: "input",
@@ -152,10 +151,6 @@ function createManager(){
     
       idArray.push(response.managerId)
       start();
-
-
-      // Now call the next question set
-      // createTeam(); (commented out from gary example)
     });
 }
 
@@ -166,7 +161,6 @@ function createEngineer(){
       type: "input",
       name: "engineerName",
       message: "What is your Engineer's name?",
-      // Note how the validate function works
       validate: answer => {
         if (answer !== "") {
           return true;
@@ -216,19 +210,14 @@ function createEngineer(){
       idArray.push(response.engineerId)
       start();
 
-
-      // Now call the next question set
-      // createTeam(); (commented out from gary example)
     });
 }
 function createIntern(){
-  // console.log("Please build your team");
   inquirer.prompt([
     {
       type: "input",
       name: "internName",
       message: "What is your Intern's name?",
-      // Note how the validate function works
       validate: answer => {
         if (answer !== "") {
           return true;
@@ -269,11 +258,8 @@ function createIntern(){
       } 
     }
     
-    // STUDENT: Add other questions here!
 
     ]).then(response  => {
-      // STUDENT: Process the response by instatiating a new object in the Manager class
-      // process all the answers
       const internObj = new Intern (response.internName, response.internId, response.internEmail, response.school )
       teamMembers.push(internObj)
       idArray.push(response.internId)
