@@ -6,7 +6,7 @@
 
 ## Description
 
-Using JavaScript and Node Package Managers, this CLI application will serve as a tool that a manager of a software engineering team can use to generate a webpage that displays their team's basic info. The info will allow the manger to have quick access to emails and GitHub profiles.
+Using JavaScript and Node Package Managers, this CLI application will serve as a tool that a manager of a software engineering team can use to generate a webpage to display their team's basic info. The info will allow the manger to have quick access to emails and GitHub profiles.
 
 ## Table Of Contents
 
