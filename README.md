@@ -6,15 +6,13 @@
 
 ## Description
 
-Using JavaScript and Node Package Managers, this application will serve as a tool that a manager of a software engineering team can use to generate a webpage that displays their team's basic info. The info will allow the manger to have quick access to emails and GitHub profiles.
+Using JavaScript and Node Package Managers, this CLI application will serve as a tool that a manager of a software engineering team can use to generate a webpage that displays their team's basic info. The info will allow the manger to have quick access to emails and GitHub profiles.
 
 ## Table Of Contents
 
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
-* [Contribuiting](#contributing)
-* [Tests](#tests)
 * [Question](#questions)
 
 ## Installation
@@ -22,22 +20,17 @@ Using JavaScript and Node Package Managers, this application will serve as a too
 Install dependencies using command bellow
 - `npm install`
 
+Run in CLI
+- `node app.js`
+
 ## Usage
 
-nothing yet
+Create an HTML Page to help manage any development project or collaboration using the CLI. Assign Managers, Engineers, and even Interns. Enjoy a pretty CLI interface bootstrapped via npm package CHALK. 
 
 ## License
 
 MIT License
 
-## Contributing
-
-n/a
-
-## Tests
-
-Test the application and generate a README using the following command
-- `node app.js`
 
 ## Questions
 
