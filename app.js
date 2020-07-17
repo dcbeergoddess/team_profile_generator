@@ -21,7 +21,7 @@ const teamMembers = [];
 const idArray = [];
 
 
-function start () {
+function start() {
   inquirer.prompt([
     {
       type: "list",
@@ -34,7 +34,7 @@ function start () {
         chalk.greenBright("Finished")
       ]
     }
-  ]).then( response => {
+  ]).then(response => {
     // process all the answers
     if (response.type === chalk.magenta("Manager")) {
       createManager("Manager");
@@ -88,9 +88,9 @@ const employeeData = [
 ]
 */
 // createManager()
-  //ask all the manager questions, when done, go back to start()
+//ask all the manager questions, when done, go back to start()
 // STUDENT: This function generates all the questions for creating the manager. You need to add more to this.
-function createManager(){
+function createManager() {
   // console.log("Please build your team");
   inquirer.prompt([
     {
@@ -121,9 +121,9 @@ function createManager(){
       name: "managerEmail",
       message: "Enter Your Email",
       validate: answer => {
-        if (validator.validate(answer) === true ) {
+        if (validator.validate(answer) === true) {
           return true;
-        } return chalk.red("Please enter valid e-mail") 
+        } return chalk.red("Please entder valid e-mail")
       }
     },
     {
@@ -137,24 +137,23 @@ function createManager(){
         return chalk.red("Please enter at least one character.");
       }
     }
-    
-   
 
-    ]).then(response  => {
-      // STUDENT: Process the response by instatiating a new object in the Manager class
-      // process all the answers
-      const managerObj = new Manager (response.managerName, response.managerId, response.managerEmail, response.officeNumber)
-      teamMembers.push(managerObj)
-      //tryign to get error message if more than one manager
-        //if (teamMembers ["Manager"]) {
-          //console.log ("You can only have one Manager")
-    
-      idArray.push(response.managerId)
-      start();
-    });
+  ]).then(response => {
+    // STUDENT: Process the response by instatiating a new object in the Manager class
+    // process all the answers
+    const managerObj = new Manager(response.managerName, response.managerId, response.managerEmail, response.officeNumber)
+    teamMembers.push(managerObj)
+    //tryign to get error message if more than one manager
+    //if (teamMembers ["Manager"]) {
+    //console.log ("You can only have one Manager")
+
+    idArray.push(response.managerId)
+    start();
+  });
 }
 
-function createEngineer(){
+
+function createEngineer() {
   // console.log("Please build your team");
   inquirer.prompt([
     {
@@ -184,9 +183,9 @@ function createEngineer(){
       name: "engineerEmail",
       message: "Enter Engineer Email",
       validate: answer => {
-        if (validator.validate(answer) === true ) {
+        if (validator.validate(answer) === true) {
           return true;
-        } return chalk.red("Please enter valid e-mail") 
+        } return chalk.red("Please enter valid e-mail")
       }
     },
     {
@@ -200,19 +199,18 @@ function createEngineer(){
         return chalk.red("Please enter at least one character.");
       }
     }
-    
-  
+  ]).then(response => {
 
-    ]).then(response  => {
-     
-      const engineerObj = new Engineer (response.engineerName, response.engineerId, response.engineerEmail, response.github)
-      teamMembers.push(engineerObj)
-      idArray.push(response.engineerId)
-      start();
+    const engineerObj = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.github)
+    teamMembers.push(engineerObj)
+    idArray.push(response.engineerId)
+    start();
 
-    });
+  });
 }
-function createIntern(){
+
+
+function createIntern() {
   inquirer.prompt([
     {
       type: "input",
@@ -241,9 +239,9 @@ function createIntern(){
       name: "internEmail",
       message: "Enter Intern Email",
       validate: answer => {
-        if (validator.validate(answer) === true ) {
+        if (validator.validate(answer) === true) {
           return true;
-        } return chalk.red("Please enter valid e-mail") 
+        } return chalk.red("Please enter valid e-mail")
       }
     },
     {
@@ -255,30 +253,30 @@ function createIntern(){
           return true;
         }
         return chalk.red("Please enter at least one character.");
-      } 
-    }
-    
-
-    ]).then(response  => {
-      const internObj = new Intern (response.internName, response.internId, response.internEmail, response.school )
-      teamMembers.push(internObj)
-      idArray.push(response.internId)
-      start();
-
-    });
-}
-  function finish() {
-
-    const html = render(teamMembers);
-
-    fs.writeFile("index.html", html, error => {
-      if (error){
-        return console.log(Error)
-      } else {
-        return console.log(chalk.black.bgMagentaBright("You have created your team page!!"))
       }
-    })
-  }
+    }
+
+
+  ]).then(response => {
+    const internObj = new Intern(response.internName, response.internId, response.internEmail, response.school)
+    teamMembers.push(internObj)
+    idArray.push(response.internId)
+    start();
+
+  });
+}
+
+
+function finish() {
+  const html = render(teamMembers);
+  fs.writeFile("index.html", html, error => {
+    if (error) {
+      return console.log(Error)
+    } else {
+      return console.log(chalk.black.bgMagentaBright("You have created your team page!!"))
+    }
+  })
+}
 start();
 
 
