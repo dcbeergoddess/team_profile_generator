@@ -50,46 +50,6 @@ function start() {
     }
   })
 }
-/* TWO DIFFERNT WAYS TO POSSIBLY APPROAC REFACTORING
-
-//create a function and then call it
-function createEmployee(employeeType){
-  inquirer.prompt([
-    {
-    type: "input",
-    message: "Enter name:",
-    name: "name"
-  }
-  ]).then( employeeData => {
-    createManager(employeeData);
-    createEngineer(employeeData);
-    createIntern(employeeData);
-  })
-}
-
-//declar the questions as a variable. also a way to put inquirer prompt in the variable for all seapearate questiona nd then next the call back responses with .then statements 
-const employeeData = [
-  {
-    type: "input",
-    name: "name",
-    message: "Enter Employee Name:",
-    
-  },
-  {
-    type: "input",
-    name: "id",
-    message: "Enter Employee ID"
-  },
-  {
-    type: "input",
-    name: "email",
-    message: "Enter Employee Email"
-  }
-]
-*/
-// createManager()
-//ask all the manager questions, when done, go back to start()
-// STUDENT: This function generates all the questions for creating the manager. You need to add more to this.
 function createManager() {
   // console.log("Please build your team");
   inquirer.prompt([
@@ -139,14 +99,9 @@ function createManager() {
     }
 
   ]).then(response => {
-    // STUDENT: Process the response by instatiating a new object in the Manager class
-    // process all the answers
+    
     const managerObj = new Manager(response.managerName, response.managerId, response.managerEmail, response.officeNumber)
     teamMembers.push(managerObj)
-    //tryign to get error message if more than one manager
-    //if (teamMembers ["Manager"]) {
-    //console.log ("You can only have one Manager")
-
     idArray.push(response.managerId)
     start();
   });
