@@ -8,6 +8,8 @@
 
 Using JavaScript and Node Package Managers, this CLI application will serve as a tool that a manager of a software engineering team can use to generate a webpage to display their team's basic info. The info will allow the manger to have quick access to emails and GitHub profiles.
 
+![TeamProfile](https://user-images.githubusercontent.com/59098488/88461803-c2ec0f80-ce74-11ea-9a9f-a71420e8eee8.png)
+
 ## Table Of Contents
 
 * [Installation](#installation)
